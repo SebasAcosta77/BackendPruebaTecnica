@@ -62,7 +62,7 @@ public class ClienteDTOTest {
     @Test
     void testNombreMuyLargo() {
         ClienteDTO cliente = new ClienteDTO();
-        cliente.setNombre("x".repeat(101)); // ❌ supera 100 caracteres
+        cliente.setNombre("x".repeat(101)); //  supera 100 caracteres
         cliente.setEmail("test@mail.com");
         cliente.setTelefono("3012233445");
 
