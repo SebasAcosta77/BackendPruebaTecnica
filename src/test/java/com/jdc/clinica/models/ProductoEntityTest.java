@@ -22,9 +22,9 @@ public class ProductoEntityTest {
         validator = factory.getValidator();
     }
 
-    // =============================
+   
     // 1. Validación correcta del producto
-    // =============================
+   
     @Test
     void testProductoValido() {
         ProductoEntity producto = new ProductoEntity();
@@ -43,9 +43,8 @@ public class ProductoEntityTest {
         assertTrue(errores.isEmpty(), "La entidad debe ser válida con todos los campos completos");
     }
 
-    // =============================
     // 2. Validación de campos obligatorios @NotNull
-    // =============================
+   
     @Test
     void testCamposObligatorios() {
         ProductoEntity producto = new ProductoEntity(); // sin datos
@@ -62,9 +61,9 @@ public class ProductoEntityTest {
         assertTrue(errores.stream().anyMatch(v -> v.getPropertyPath().toString().equals("precio_eur")));
     }
 
-    // =============================
+
     // 3. Validar método addOrden (relación Bidireccional)
-    // =============================
+   
     @Test
     void testAddOrdenProducto() {
         ProductoEntity producto = new ProductoEntity();
