@@ -19,7 +19,7 @@ public class OrdenProductoEntity {
     @Column(name = "idordenproducto")
     private Long idordenproducto;
 
-    // ========== ORDEN ==========
+    
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "fkorden", referencedColumnName = "idorden", nullable = false)
@@ -31,7 +31,7 @@ public class OrdenProductoEntity {
         return orden != null ? orden.getIdorden() : null;
     }
 
-    // ========== PRODUCTO ==========
+    
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "fkproducto", referencedColumnName = "idproducto", nullable = false)
