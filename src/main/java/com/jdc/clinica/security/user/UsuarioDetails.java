@@ -19,7 +19,7 @@ public class UsuarioDetails implements UserDetails {
     }
 
 
-    // ⬇⬇⬇ IMPORTANTE — ESTE MÉTODO ES NUEVO
+   
     public Long getId() {
         return usuario.getIduser();
     }
@@ -36,7 +36,7 @@ public class UsuarioDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return usuario.getEmail(); // email como username
+        return usuario.getEmail(); 
     }
 
     @Override
