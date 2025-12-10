@@ -35,9 +35,9 @@ public class AuthController {
         this.authService = authService;
     }
 
-    // =====================================================
+   
     // LOGIN
-    // =====================================================
+  
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody LoginDTO loginDTO) {
 
@@ -70,9 +70,9 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
-    // =====================================================
+   
     // REGISTRO
-    // =====================================================
+
     @PostMapping("/register")
     public ResponseEntity<String> registrar(@RequestBody UsuarioCreateDTO dto) {
 
