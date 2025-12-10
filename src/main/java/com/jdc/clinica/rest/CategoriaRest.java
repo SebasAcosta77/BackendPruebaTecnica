@@ -24,9 +24,9 @@ public class CategoriaRest {
     @Autowired
     private ICategoriaService categoriaService;
 
-    // =========================================
-    // CREAR / EDITAR CATEGORÍA
-    // =========================================
+    
+    // CREAR 
+   
     @Operation(
             summary = "Crear o editar una categoría",
             description = "Registra una nueva categoría o actualiza una existente enviando un DTO."
@@ -46,9 +46,9 @@ public class CategoriaRest {
         }
     }
 
-    // =========================================
+    
     // LISTAR CATEGORÍAS
-    // =========================================
+   
     @Operation(
             summary = "Listar todas las categorías",
             description = "Devuelve un listado completo de todas las categorías registradas."
@@ -59,9 +59,8 @@ public class CategoriaRest {
         return ResponseEntity.ok(categoriaService.findAll());
     }
 
-    // =========================================
     // BUSCAR POR ID
-    // =========================================
+   
     @Operation(
             summary = "Buscar categoría por ID",
             description = "Devuelve los datos de una categoría a partir de su ID."
@@ -80,9 +79,9 @@ public class CategoriaRest {
         }
     }
 
-    // =========================================
+    
     // ACTUALIZAR POR ID
-    // =========================================
+    
     @Operation(
             summary = "Actualizar categoría por ID",
             description = "Permite actualizar una categoría específica enviando su ID y un DTO."
@@ -105,9 +104,9 @@ public class CategoriaRest {
         }
     }
 
-    // =========================================
+   
     // ELIMINAR
-    // =========================================
+   
     @Operation(
             summary = "Eliminar categoría",
             description = "Elimina una categoría existente por su ID."
