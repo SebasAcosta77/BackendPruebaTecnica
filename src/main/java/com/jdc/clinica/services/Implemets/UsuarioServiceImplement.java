@@ -21,9 +21,9 @@ public class UsuarioServiceImplement implements IUsuarioService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // =========================================
+  
     // CREAR USUARIO
-    // =========================================
+  
     @Override
     public UsuarioDTO crearUsuario(UsuarioCreateDTO dto) {
 
@@ -62,9 +62,9 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return response;
     }
 
-    // =========================================
+   
     // LISTAR
-    // =========================================
+  
     @Override
     public List<UsuarioListDTO> findAll() {
         return usuarioRepository.findAll()
@@ -79,18 +79,18 @@ public class UsuarioServiceImplement implements IUsuarioService {
                 .toList();
     }
 
-    // =========================================
+   
     // BUSCAR
-    // =========================================
+    
     @Override
     public UsuariosEntity findById(Long id) {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + id));
     }
 
-    // =========================================
+  
     // CREAR
-    // =========================================
+  
     @Override
     public UsuariosEntity save(UsuarioDTO dto) {
 
@@ -117,9 +117,9 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return usuarioRepository.save(entity);
     }
 
-    // =========================================
+    
     // ACTUALIZAR POR ID
-    // =========================================
+  
     @Override
     public UsuariosEntity actualizarPorId(Long id, UsuarioDTO dto) {
 
@@ -146,9 +146,9 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return usuarioRepository.save(entity);
     }
 
-    // =========================================
+    
     // ELIMINAR USUARIO
-    // =========================================
+   
     @Override
     public void delete(Long id) {
 
