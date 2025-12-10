@@ -33,7 +33,7 @@ public class UsuariosEntity {
     @Column(name = "rol")
     private Rol rol;
 
-    // 🔹 Relación 1:1 inversa (opcional)
+  
     @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
     @JsonIgnore
     private ClienteEntity cliente;
