@@ -25,18 +25,18 @@ public class InventarioPDFServiceImplement {
             PdfWriter.getInstance(document, out);
             document.open();
 
-            // ==========================
+           
             // TÍTULO
-            // ==========================
+           
             Font fontTitulo = new Font(Font.HELVETICA, 20, Font.BOLD, new Color(33, 97, 140)); // azul elegante
             Paragraph titulo = new Paragraph(" Reporte de Inventario", fontTitulo);
             titulo.setAlignment(Element.ALIGN_CENTER);
             titulo.setSpacingAfter(10);
             document.add(titulo);
 
-            // ==========================
+           
             // FECHA DE CREACIÓN
-            // ==========================
+           
             String fecha = LocalDateTime.now()
                     .format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
 
@@ -46,16 +46,16 @@ public class InventarioPDFServiceImplement {
             fechaCreacion.setSpacingAfter(20);
             document.add(fechaCreacion);
 
-            // ==========================
+        
             // TABLA
-            // ==========================
+            
             PdfPTable table = new PdfPTable(5);
             table.setWidthPercentage(100);
             table.setSpacingBefore(10);
             table.setSpacingAfter(10);
             table.setWidths(new float[]{1.2f, 2.5f, 2.5f, 1.2f, 1.5f});
 
-            // Encabezados con estilo
+            // Encabezados 
             Font fontHeader = new Font(Font.HELVETICA, 12, Font.BOLD, Color.blue);
 
             agregarEncabezado(table, "ID", fontHeader);
@@ -85,9 +85,8 @@ public class InventarioPDFServiceImplement {
         return new ByteArrayInputStream(out.toByteArray());
     }
 
-    // ===============================
     // CELDA NORMAL
-    // ===============================
+  
     private void agregarCelda(PdfPTable table, String contenido, Font font) {
         PdfPCell cell = new PdfPCell(new Phrase(contenido, font));
         cell.setPadding(6);
@@ -95,9 +94,9 @@ public class InventarioPDFServiceImplement {
         table.addCell(cell);
     }
 
-    // ===============================
+   
     // CELDA DE ENCABEZADO
-    // ===============================
+
     private void agregarEncabezado(PdfPTable table, String titulo, Font font) {
         PdfPCell header = new PdfPCell(new Phrase(titulo, font));
         header.setBackgroundColor(new Color(33, 97, 140)); // azul elegante
