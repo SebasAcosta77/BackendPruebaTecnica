@@ -4,10 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 
 import java.util.List;
-/**
- * DTO para transferencia de datos del Producto.
- * Incluye validaciones y estructura limpia según buenas prácticas.
- */
+
 
 public class ProductoDTO {
 
@@ -58,9 +55,7 @@ public class ProductoDTO {
         this.nombre = nombre;
     }
 
-    // ============================
-    // GETTERS & SETTERS
-    // ============================
+    
     public Long getIdproducto() {
         return idproducto;
     }
