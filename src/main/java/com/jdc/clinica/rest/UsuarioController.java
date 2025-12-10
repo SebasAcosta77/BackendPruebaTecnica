@@ -24,35 +24,35 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    // =========================================
+   
     // LISTAR TODOS
-    // =========================================
+
 
     @GetMapping("/list")
     public ResponseEntity<List<UsuarioListDTO>> listar() {
         return ResponseEntity.ok(usuarioService.findAll());
     }
 
-    // =========================================
+   
     // BUSCAR POR ID
-    // =========================================
+   
     @GetMapping("/{id}")
     public ResponseEntity<UsuariosEntity> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(usuarioService.findById(id));
     }
 
-    // =========================================
-    // CREAR / EDITAR (método general)
-    // =========================================
+    
+    // CREAR
+
     @PostMapping
     public ResponseEntity<UsuariosEntity> guardar(@RequestBody UsuarioDTO dto) {
         UsuariosEntity nuevo = usuarioService.save(dto);
         return ResponseEntity.ok(nuevo);
     }
 
-    // =========================================
+ 
     // ACTUALIZAR POR ID
-    // =========================================
+
     @PutMapping("/{id}")
     public ResponseEntity<UsuariosEntity> actualizar(
             @PathVariable Long id,
@@ -62,9 +62,9 @@ public class UsuarioController {
         return ResponseEntity.ok(actualizado);
     }
 
-    // =========================================
+  
     // ELIMINAR
-    // =========================================
+   
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
 
