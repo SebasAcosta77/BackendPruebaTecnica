@@ -25,32 +25,31 @@ public class ProductoCategoriaServiceImplement implements IProductoCategoriaServ
     @Autowired
     private ICategoriaRepository categoriaRepository;
 
-    // =========================================
+  
     // LISTAR
-    // =========================================
+   
     @Override
     public List<ProductoCategoriaEntity> findAll() {
         return productoCategoriaRepository.findAll();
     }
 
-    // =========================================
+   
     // BUSCAR POR ID
-    // =========================================
+  
     @Override
     public ProductoCategoriaEntity findById(Long id) {
         return productoCategoriaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Relación Producto-Categoría no encontrada con ID: " + id));
     }
 
-    // =========================================
+ 
     // CREAR
-    // =========================================
+   
     @Override
     public ProductoCategoriaEntity save(ProductoCategoriaDTO dto) {
 
         ProductoCategoriaEntity entity;
 
-        // EDITAR
         if (dto.getId() != null) {
             entity = productoCategoriaRepository.findById(dto.getId())
                     .orElseThrow(() -> new RuntimeException("No existe la relación con ID: " + dto.getId()));
@@ -74,9 +73,9 @@ public class ProductoCategoriaServiceImplement implements IProductoCategoriaServ
         return productoCategoriaRepository.save(entity);
     }
 
-    // =========================================
-    // ELIMINAR RELACIÓN
-    // =========================================
+   
+    // ELIMINAR 
+  
     @Override
     public void delete(Long id) {
         ProductoCategoriaEntity entity = productoCategoriaRepository.findById(id)
