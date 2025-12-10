@@ -12,13 +12,13 @@ public interface IEmpresaService {
 
     List<EmpresaDTO> listar();
 
-    EmpresaEntity findById(String nit);   // ID = NIT (String)
+    EmpresaEntity findById(String nit);   
 
     EmpresaEntity save(EmpresaDTO empresaDTO);
 
-    EmpresaEntity actualizarPorId(String nit, EmpresaDTO empresaDTO); // corregido
+    EmpresaEntity actualizarPorId(String nit, EmpresaDTO empresaDTO);
 
-    void delete(String nit);  // corregido
+    void delete(String nit);  
 
     EmpresaEntity desactivar(String nit);
 
