@@ -34,9 +34,9 @@ public class InventarioController {
 
 
 
-    // ======================================================
+ 
     // LISTAR
-    // ======================================================
+  
     @GetMapping("/list")
     public ResponseEntity<List<InventarioEntity>> listar() {
         List<InventarioEntity> lista = inventarioService.findAll();
@@ -46,9 +46,9 @@ public class InventarioController {
     }
 
 
-    // ======================================================
+   
     // BUSCAR POR ID
-    // ======================================================
+ 
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         try {
@@ -60,9 +60,9 @@ public class InventarioController {
     }
 
 
-    // ======================================================
+   
     // CREAR
-    // ======================================================
+ 
     @PostMapping("/save")
     public ResponseEntity<?> guardar(@RequestBody InventarioDTO dto) {
         try {
@@ -73,9 +73,9 @@ public class InventarioController {
     }
 
 
-    // ======================================================
+ 
     // ACTUALIZAR
-    // ======================================================
+  
     @PutMapping("/update/{id}")
     public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody InventarioDTO dto) {
         try {
@@ -87,9 +87,9 @@ public class InventarioController {
     }
 
 
-    // ======================================================
+   
     // ELIMINAR
-    // ======================================================
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
         try {
@@ -103,9 +103,8 @@ public class InventarioController {
 
 
 
-    // ======================================================
     // DESCARGAR PDF
-    // ======================================================
+  
     @GetMapping("/pdf")
     public ResponseEntity<InputStreamResource> descargarPDF() {
 
@@ -119,9 +118,9 @@ public class InventarioController {
     }
 
 
-    // ======================================================
+
     // ENVIAR PDF POR CORREO Pendiente!! pasar SES a produciion para enviar emails a cualquier perodna
-    // ======================================================
+   
     @PostMapping("/pdf/enviar")
     public ResponseEntity<String> enviarPDF(@RequestParam String email) {
 
