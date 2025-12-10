@@ -5,9 +5,9 @@ import com.jdc.clinica.models.EmpresaEntity;
 
 public class EmpresaMapper {
 
-    // ================================
-    // Entity → DTO
-    // ================================
+    
+    // Entity 
+
     public static EmpresaDTO toDTO(EmpresaEntity empresa) {
         EmpresaDTO dto = new EmpresaDTO();
         dto.setNit(empresa.getNit());
@@ -17,9 +17,7 @@ public class EmpresaMapper {
         return dto;
     }
 
-    // ================================
-    // DTO → Entity  (CREACIÓN)
-    // ================================
+  
     public static EmpresaEntity toEntity(EmpresaDTO dto) {
         EmpresaEntity entity = new EmpresaEntity();
         entity.setNit(dto.getNit());
@@ -30,9 +28,7 @@ public class EmpresaMapper {
         return entity;
     }
 
-    // ================================
-    // Aplicar cambios DTO → Entity (UPDATE opcional)
-    // ================================
+    
     public static void updateEntity(EmpresaEntity entity, EmpresaDTO dto){
         entity.setNombre(dto.getNombre());
         entity.setDireccion(dto.getDireccion());
