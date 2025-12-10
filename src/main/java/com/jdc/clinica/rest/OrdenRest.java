@@ -18,9 +18,9 @@ public class OrdenRest {
     @Autowired
     private IOrdenService ordenService;
 
-    // =========================================
+
     // CREAR ORDEN
-    // =========================================
+  
     @PostMapping("/guardar")
     public ResponseEntity<OrdenEntity> save(@Validated @RequestBody OrdenDTO ordenDTO) {
         try {
@@ -32,17 +32,17 @@ public class OrdenRest {
         }
     }
 
-    // =========================================
-    // LISTAR ÓRDENES
-    // =========================================
+   
+    // LISTAR 
+  
     @GetMapping("/list")
     public ResponseEntity<List<OrdenEntity>> list() {
         return ResponseEntity.ok(ordenService.findAll());
     }
 
-    // =========================================
+
     // BUSCAR POR ID
-    // =========================================
+  
     @GetMapping("/buscar/{id}")
     public ResponseEntity<OrdenEntity> getById(@PathVariable Long id) {
         try {
@@ -53,9 +53,9 @@ public class OrdenRest {
         }
     }
 
-    // =========================================
+
     // ACTUALIZAR ORDEN POR ID
-    // =========================================
+   
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<OrdenEntity> actualizar(
             @PathVariable Long id,
@@ -70,9 +70,9 @@ public class OrdenRest {
         }
     }
 
-    // =========================================
+
     // ELIMINAR ÓRDEN
-    // =========================================
+
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         try {
