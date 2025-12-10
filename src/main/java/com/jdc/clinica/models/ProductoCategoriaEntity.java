@@ -22,9 +22,8 @@ public class ProductoCategoriaEntity implements Serializable {
     @Column(name = "id_productocategoria")
     private Long id;
 
-    // ============================
     // FK PRODUCTO
-    // ============================
+    
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -37,9 +36,9 @@ public class ProductoCategoriaEntity implements Serializable {
         return (producto != null) ? producto.getIdproducto() : null;
     }
 
-    // ============================
+  
     // FK CATEGORIA
-    // ============================
+   
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -52,9 +51,7 @@ public class ProductoCategoriaEntity implements Serializable {
         return (categoria != null) ? categoria.getIdcategoria() : null;
     }
 
-    // ============================
-    // GETTERS & SETTERS
-    // ============================
+ 
 
     public Long getId() {
         return id;
