@@ -51,9 +51,9 @@ public class ProductoEntity {
 
 
 
-    // =======================
+   
     // RELACIÓN N:1 EMPRESA
-    // =======================
+   
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "empresa_nit", referencedColumnName = "nit")
     private EmpresaEntity empresa;
