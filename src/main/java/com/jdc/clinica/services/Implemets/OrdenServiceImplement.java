@@ -33,26 +33,26 @@ public class OrdenServiceImplement implements IOrdenService {
     @Autowired
     private IUsuarioRepository usuariosRepository;
 
-    // =========================================
-    // LISTAR TODAS LAS ÓRDENES
-    // =========================================
+    
+    // LISTAR 
+   
     @Override
     public List<OrdenEntity> findAll() {
         return ordenRepository.findAll();
     }
 
-    // =========================================
+   
     // BUSCAR POR ID
-    // =========================================
+
     @Override
     public OrdenEntity findById(Long id) {
         return ordenRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Orden no encontrada con ID: " + id));
     }
 
-    // =========================================
+    
     // CREAR
-    // =========================================
+  
     @Override
     @Transactional
     public OrdenEntity save(OrdenDTO dto) {
@@ -69,17 +69,17 @@ public class OrdenServiceImplement implements IOrdenService {
         if (cliente == null)
             throw new RuntimeException("Este usuario no tiene cliente asociado");
 
-        // ===========================
+      
         // CREAR
-        // ===========================
+      
         OrdenEntity orden = new OrdenEntity();
         orden.setFecha(dto.getFecha());
         orden.setTotal(dto.getTotal());
         orden.setCliente(cliente);
 
-        // ===========================
+      
         // PRODUCTOS DE LA ORDEN
-        // ===========================
+     
         for (OrdenProductoDTO item : dto.getProductos()) {
 
             ProductoEntity producto = productoRepository.findById(item.getFkproducto())
@@ -93,9 +93,9 @@ public class OrdenServiceImplement implements IOrdenService {
             orden.addProducto(detalle);
         }
 
-        // ===========================
-        // GUARDAR TODO EN CASCADA
-        // ===========================
+        
+        // GUARDAR 
+     
         return ordenRepository.save(orden);
     }
 
@@ -108,10 +108,9 @@ public class OrdenServiceImplement implements IOrdenService {
 
 
 
-    // =========================================
+ 
     // ELIMINAR ORDEN
-    // (los productos se eliminan por orphanRemoval = true)
-    // =========================================
+  
     @Override
     public void delete(Long id) {
 
