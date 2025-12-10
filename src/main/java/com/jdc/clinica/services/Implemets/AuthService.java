@@ -27,9 +27,9 @@ public class AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    // ==========================================================
-    // REGISTRO Usuario
-    // ==========================================================
+ 
+    // REGISTRO 
+ 
     @Transactional
     public UsuariosEntity registrarUsuarioConCliente(UsuarioCreateDTO dto) {
 
@@ -55,7 +55,7 @@ public class AuthService {
 
         usuario = usuariosRepository.save(usuario);
 
-        // ▓ Crear cliente asociado
+     
         ClienteEntity cliente = new ClienteEntity();
         cliente.setNombre(dto.getNombre());
         cliente.setTelefono(dto.getTelefono());
