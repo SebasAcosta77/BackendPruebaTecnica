@@ -15,7 +15,6 @@ public class EmpresaEntity {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    // === CAMPOS ===
     @Id
     @Column(name = "nit", length = 20)
     private String nit;
@@ -47,14 +46,14 @@ public class EmpresaEntity {
         this.telefono = telefono;
     }
 
-    // =======================
+  
     // RELACIÓN 1:N PRODUCTOS
-    // =======================
+   
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.MERGE)
     @JsonIgnore
     private List<ProductoEntity> productos;
 
-    // === GETTERS & SETTERS ===
+  
 
 
     public String getEstado() {
