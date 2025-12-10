@@ -48,11 +48,11 @@ public class SecurityConfig {
                                 "/webjars/**"
                         ).permitAll()
 
-                        // ================= PÚBLICO =================
+                      
                         .requestMatchers("/auth/login", "/auth/register")
                         .permitAll()
 
-                        // ================= EMPRESA =================
+                       
                         .requestMatchers(HttpMethod.GET, "/api/empresa/list")
                         .hasAnyRole("ADMIN", "EXTERNO")
 
@@ -63,7 +63,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/api/empresa/**")
                         .hasRole("ADMIN")
 
-                        // ================= PRODUCTO =================
+                     
                         .requestMatchers(HttpMethod.GET, "/api/producto/list")
                         .hasAnyRole("ADMIN", "EXTERNO")
 
@@ -74,11 +74,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/api/producto/**")
                         .hasRole("ADMIN")
 
-                        // ================= INVENTARIO =================
+                   
                         .requestMatchers("/api/inventario/**")
                         .hasRole("ADMIN")
 
-                        // ================= RESTO =================
+                        
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess ->
