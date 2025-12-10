@@ -18,10 +18,10 @@ public class ProductoMapper {
         dto.setPrecioUsd(p.getPrecio_usd());
         dto.setPrecioEur(p.getPrecio_eur());
 
-        // Solo mostramos el NIT, no la empresa completa
+       
         dto.setEmpresaNit(p.getEmpresa().getNit());
 
-        // Convertimos categorías si deseas mostrarlas
+       
         if (p.getCategorias() != null)
             dto.setCategoriasIds(
                     p.getCategorias().stream()
