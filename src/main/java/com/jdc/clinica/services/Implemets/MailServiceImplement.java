@@ -31,7 +31,7 @@ public class MailServiceImplement {
         rawMail.append("MIME-Version: 1.0").append("\n");
         rawMail.append("Content-Type: multipart/mixed; boundary=\"").append(boundary).append("\"\n\n");
 
-        // Parte del cuerpo (texto simple)
+        // Parte del cuerpo 
         rawMail.append("--").append(boundary).append("\n");
         rawMail.append("Content-Type: text/plain; charset=UTF-8\n\n");
         rawMail.append("Adjunto encontrarás el reporte de inventario.\n\n");
@@ -56,6 +56,6 @@ public class MailServiceImplement {
                 .withRawMessage(rawMessage);
 
         SendRawEmailResult result = client.sendRawEmail(rawEmailRequest);
-        System.out.println("📨 Email enviado con ID: " + result.getMessageId());
+        System.out.println(" Email enviado con ID: " + result.getMessageId());
     }
 }
