@@ -12,9 +12,9 @@ import java.util.Map;
 @Service
 public class JwtService {
 
-    // ==========================================================
+  
     // CONFIGURACIÓN DEL TOKEN
-    // ==========================================================
+  
     private final String SECRET = "MI_CLAVE_SECRETA_256_BITS_SEGURA_PARA_JWT_123456789"; // ≥ 32 chars
     private final Long EXPIRATION = 1000 * 60 * 60 * 10L; // 10 horas
 
@@ -22,9 +22,7 @@ public class JwtService {
         return Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
-    // ==========================================================
-    // 🔥 GENERAR TOKEN (email + rol + iduser)
-    // ==========================================================
+   
     public String generateToken(Long id, String email, String rol) {
 
         Map<String, Object> claims = new HashMap<>();
@@ -41,9 +39,7 @@ public class JwtService {
                 .compact();
     }
 
-    // ==========================================================
-    // OBTENER DATOS DEL TOKEN
-    // ==========================================================
+    
     public String extractEmail(String token) {
         return parseToken(token).getBody().get("email", String.class);
     }
@@ -56,9 +52,7 @@ public class JwtService {
         return parseToken(token).getBody().get("rol", String.class);
     }
 
-    // ==========================================================
-    // VALIDACIÓN
-    // ==========================================================
+   
     public boolean isTokenValid(String token, String email) {
         try {
             return email.equals(extractEmail(token)) && !isExpired(token);
@@ -71,9 +65,7 @@ public class JwtService {
         return parseToken(token).getBody().getExpiration().before(new Date());
     }
 
-    // ==========================================================
-    // PARSEAR TOKEN (Acepta Bearer + seguridad)
-    // ==========================================================
+ 
     private Jws<Claims> parseToken(String token) {
 
         token = token.replace("Bearer ", "").trim();
