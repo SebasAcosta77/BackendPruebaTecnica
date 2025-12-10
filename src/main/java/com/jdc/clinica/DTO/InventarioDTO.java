@@ -9,7 +9,7 @@ public class InventarioDTO {
 
     private Long idinventario;
 
-    // NIT de la empresa dueña del inventario
+  
     @NotBlank(message = "El NIT de la empresa es obligatorio")
     private String empresaNit;
 
@@ -17,11 +17,10 @@ public class InventarioDTO {
 
     private Long productoId;
 
-    // Cantidades
     private int stock;
     private Integer stockMinimo;
 
-    // Estado (opcional - default ACTIVO)
+   
     private String estado;
 
     public Long getIdinventario() {
