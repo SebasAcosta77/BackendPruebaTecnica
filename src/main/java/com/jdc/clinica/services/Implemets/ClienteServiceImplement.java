@@ -18,9 +18,9 @@ public class ClienteServiceImplement implements IClienteService {
     @Autowired
     private IClienteRepository clienteRepository;
 
-    // =========================================
+  
     // LISTAR TODOS LOS CLIENTES
-    // =========================================
+
     @Override
     public List<ClienteEntity> findAll() {
         return clienteRepository.findAll();
@@ -34,24 +34,24 @@ public class ClienteServiceImplement implements IClienteService {
                 .toList();
     }
 
-    // =========================================
+ 
     // BUSCAR POR ID
-    // =========================================
+
     @Override
     public ClienteEntity findById(Long id) {
         return clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado con ID: " + id));
     }
 
-    // =========================================
-    // CREAR / EDITAR CLIENTE
-    // =========================================
+
+    // CREAR 
+  
     @Override
     public ClienteEntity save(ClienteDTO dto) {
 
         ClienteEntity entity;
 
-        // EDITAR
+    
         if (dto.getIdcliente() != null) {
             entity = clienteRepository.findById(dto.getIdcliente())
                     .orElseThrow(() -> new RuntimeException("No existe cliente con ID: " + dto.getIdcliente()));
@@ -78,9 +78,9 @@ public class ClienteServiceImplement implements IClienteService {
         return clienteRepository.save(entity);
     }
 
-    // =========================================
+
     // ELIMINAR CLIENTE
-    // =========================================
+  
     @Override
     public void delete(Long id) {
         ClienteEntity entity = clienteRepository.findById(id)
