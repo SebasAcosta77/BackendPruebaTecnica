@@ -25,17 +25,17 @@ public class EmpresaServiceImplement implements IEmpresaService {
     private IProductoRepository productoRepository;
 
 
-    // =====================================================
-    // LISTAR ENTIDADES (DEVUELVE ENTITY)
-    // =====================================================
+    
+    // LISTAR 
+  
     @Override
     public List<EmpresaEntity> findAll() {
         return empresaRepository.findAll();
     }
 
-    // =====================================================
-    // LISTAR DTO (RECOMENDADO PARA RESPUESTAS JSON)
-    // =====================================================
+    
+    // LISTAR DTO 
+  
     @Override
     public List<EmpresaDTO> listar() {
         return empresaRepository.findAll()
@@ -44,9 +44,9 @@ public class EmpresaServiceImplement implements IEmpresaService {
                 .toList();
     }
 
-    // =====================================================
+   
     // BUSCAR POR NIT
-    // =====================================================
+   
     @Override
     public EmpresaEntity findById(String nit) {
         return empresaRepository.findById(nit)
@@ -54,9 +54,9 @@ public class EmpresaServiceImplement implements IEmpresaService {
     }
 
 
-    // =====================================================
+   
     // CREAR
-    // =====================================================
+   
     @Override
     public EmpresaEntity save(EmpresaDTO dto) {
 
@@ -64,21 +64,21 @@ public class EmpresaServiceImplement implements IEmpresaService {
             throw new RuntimeException("El NIT es obligatorio");
         }
 
-        // Evitar que se cree un registro con un NIT ya existente
+      
         if (empresaRepository.existsById(dto.getNit())) {
             throw new RuntimeException("Ya existe una empresa con este NIT: " + dto.getNit());
         }
 
-        // Crear entidad nueva desde el DTO
+    
         EmpresaEntity entity = EmpresaMapper.toEntity(dto);
 
         return empresaRepository.save(entity);
     }
 
 
-    // =====================================================
-    // ACTUALIZAR POR NIT — usando DTO
-    // =====================================================
+    
+    // ACTUALIZAR 
+  
     @Override
     public EmpresaEntity actualizarPorId(String nit, EmpresaDTO dto) {
 
@@ -91,9 +91,9 @@ public class EmpresaServiceImplement implements IEmpresaService {
     }
 
 
-    // =====================================================
+  
     // ELIMINAR
-    // =====================================================
+  
     @Override
     public void delete(String nit) {
 
@@ -110,9 +110,9 @@ public class EmpresaServiceImplement implements IEmpresaService {
     }
 
 
-    // =====================================================
+   
     // DESACTIVAR & ACTIVAR EMPRESA
-    // =====================================================
+  
     @Override
     public EmpresaEntity desactivar(String nit) {
 
@@ -146,7 +146,7 @@ public class EmpresaServiceImplement implements IEmpresaService {
         long inventarios = inventarioRepository.countByEmpresa_Nit(nit);
         long productos = productoRepository.countByEmpresa_Nit(nit);
 
-        // Si tiene dependencias NO se elimina
+      
         if (inventarios > 0 || productos > 0) {
             empresa.setEstado("INACTIVO");
             empresaRepository.save(empresa);
