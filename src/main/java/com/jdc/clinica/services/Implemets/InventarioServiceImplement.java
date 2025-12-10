@@ -25,32 +25,32 @@ public class InventarioServiceImplement implements IInventarioService {
     @Autowired
     private IEmpresaRepository empresaRepository;
 
-    // =========================================
+ 
     // LISTAR TODO EL INVENTARIO
-    // =========================================
+ 
     @Override
     public List<InventarioEntity> findAll() {
         return inventarioRepository.findAll();
     }
 
-    // =========================================
+   
     // BUSCAR POR ID
-    // =========================================
+
     @Override
     public InventarioEntity findById(Long id) {
         return inventarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Inventario no encontrado con ID: " + id));
     }
 
-    // =========================================
+   
     // CREAR
-    // =========================================
+   
     @Override
     public InventarioEntity save(InventarioDTO inventarioDTO) {
 
         InventarioEntity entity;
 
-        // EDITAR
+       
         if (inventarioDTO.getIdinventario() != null) {
             entity = inventarioRepository.findById(inventarioDTO.getIdinventario())
                     .orElseThrow(() ->
@@ -60,27 +60,25 @@ public class InventarioServiceImplement implements IInventarioService {
             entity = new InventarioEntity();
         }
 
-        // ===========================
+      
         // VALIDAR EMPRESA
-        // ===========================
+       
         EmpresaEntity empresa = empresaRepository.findById(inventarioDTO.getEmpresaNit())
                 .orElseThrow(() ->
                         new RuntimeException("La empresa con NIT " + inventarioDTO.getEmpresaNit() + " no existe"));
 
         entity.setEmpresa(empresa);
 
-        // ===========================
+       
         // VALIDAR PRODUCTO
-        // ===========================
+       
         ProductoEntity producto = productoRepository.findById(inventarioDTO.getProductoId())
                 .orElseThrow(() ->
                         new RuntimeException("El producto con ID " + inventarioDTO.getProductoId() + " no existe"));
 
         entity.setProducto(producto);
 
-        // ===========================
-        // CAMPOS DEL INVENTARIO
-        // ===========================
+      
         entity.setStock(inventarioDTO.getStock());
         entity.setStockMinimo(inventarioDTO.getStockMinimo());
         entity.setEstado(
@@ -92,9 +90,8 @@ public class InventarioServiceImplement implements IInventarioService {
         return inventarioRepository.save(entity);
     }
 
-    // =========================================
     // ACTUALIZAR INVENTARIO POR ID
-    // =========================================
+ 
     @Override
     public InventarioEntity actualizarPorId(Long id, InventarioDTO inventarioDTO) {
 
@@ -117,9 +114,9 @@ public class InventarioServiceImplement implements IInventarioService {
             entity.setProducto(producto);
         }
 
-        // ===========================
+      
         // ACTUALIZAR CAMPOS
-        // ===========================
+       
         entity.setStock(inventarioDTO.getStock());
         entity.setStockMinimo(inventarioDTO.getStockMinimo());
 
@@ -130,9 +127,9 @@ public class InventarioServiceImplement implements IInventarioService {
         return inventarioRepository.save(entity);
     }
 
-    // =========================================
+    
     // ELIMINAR
-    // =========================================
+   
     @Override
     public void delete(Long id) {
         InventarioEntity entity = inventarioRepository.findById(id)
@@ -143,12 +140,12 @@ public class InventarioServiceImplement implements IInventarioService {
 
     @Override
     public List<InventarioEntity> findByEmpresa(String empresaNit) {
-        // 1. Validar que la empresa exista
+        
         EmpresaEntity empresa = empresaRepository.findById(empresaNit)
                 .orElseThrow(() ->
                         new RuntimeException("La empresa con NIT " + empresaNit + " no existe"));
 
-        // 2. Retornar lista de inventario filtrado por empresa
+       
         return inventarioRepository.findByEmpresa(empresa);
     }
 
