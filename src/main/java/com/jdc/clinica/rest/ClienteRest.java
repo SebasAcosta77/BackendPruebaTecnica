@@ -18,9 +18,9 @@ public class ClienteRest {
     @Autowired
     private IClienteService clienteService;
 
-    // =========================================
-    // CREAR / EDITAR CLIENTE
-    // =========================================
+
+    // CREAR 
+   
     @PostMapping("/guardar")
     public ResponseEntity<ClienteEntity> save(@Validated @RequestBody ClienteDTO clienteDTO) {
         try {
@@ -32,9 +32,9 @@ public class ClienteRest {
         }
     }
 
-    // =========================================
+    
     // LISTAR CLIENTES
-    // =========================================
+   
     @GetMapping("/list")
     public ResponseEntity<List<ClienteEntity>> list() {
         return ResponseEntity.ok(clienteService.findAll());
@@ -43,9 +43,9 @@ public class ClienteRest {
         return clienteService.listar();
     }
 
-    // =========================================
+  
     // BUSCAR POR ID
-    // =========================================
+   
     @GetMapping("/buscar/{id}")
     public ResponseEntity<ClienteEntity> getById(@PathVariable Long id) {
         try {
@@ -55,7 +55,7 @@ public class ClienteRest {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
-    // =========================================
+   
     // ACTUALIZAR POR ID
 
     @PutMapping("/actualizar/{id}")
@@ -72,9 +72,9 @@ public class ClienteRest {
         }
     }
 
-    // =========================================
+ 
     // ELIMINAR CLIENTE
-    // =========================================
+   
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         try {
