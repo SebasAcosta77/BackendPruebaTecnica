@@ -6,7 +6,7 @@ public class UsuarioCreateDTO {
     private String password;
     private String rol;
 
-    private String nombre;   // ➕ Datos del cliente
+    private String nombre;  
     private String telefono;
 
     public UsuarioCreateDTO() {}
