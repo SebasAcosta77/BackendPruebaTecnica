@@ -34,18 +34,17 @@ public class EmpresaRest {
         }
     }
 
-    // =========================================
+   
     // LISTAR EMPRESAS
-    // =========================================
+    
     @PreAuthorize("hasAnyRole('ADMIN','EXTERNO')")
     @GetMapping("/list")
     public ResponseEntity<List<EmpresaEntity>> list() {
         return ResponseEntity.ok(empresaService.findAll());
     }
 
-    // =========================================
     // BUSCAR POR NIT
-    // =========================================
+    
     @PreAuthorize("hasAnyRole('ADMIN','EXTERNO')")
     @GetMapping("/buscar/{nit}")
     public ResponseEntity<EmpresaEntity> getByNit(@PathVariable String nit) {
@@ -57,9 +56,9 @@ public class EmpresaRest {
         }
     }
 
-    // =========================================
+
     // ACTUALIZAR EMPRESA
-    // =========================================
+    
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/actualizar/{nit}")
     public ResponseEntity<EmpresaEntity> actualizar(
@@ -75,9 +74,9 @@ public class EmpresaRest {
         }
     }
 
-    // =========================================
+
     // ELIMINAR EMPRESA
-    // =========================================
+   
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/eliminar/{nit}")
     public ResponseEntity<?> delete(@PathVariable String nit) {
